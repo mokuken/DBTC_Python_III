@@ -14,8 +14,8 @@ student_grades["harly"] = 100
 del student_grades["jemart"]
 
 
-for name, grades in student_grades.items():
-    print(f"Student name: {name} with grades of: {grades}")
+for student, grades in student_grades.items():
+    print(f"Student name: {student} with grades of: {grades}")
 
 
 
