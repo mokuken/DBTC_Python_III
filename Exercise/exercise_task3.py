@@ -1,7 +1,13 @@
 students = ["Alice", "Bob", "Charlie", "David", "Eve"]
 
+students.append("Harly")
+print(students)
 
-print(students.append("Harly"))
-print(students.insert(1, "Ryan"))
-print(students.sort())
-print(students.reverse())
+students.insert(1, "Ryan")
+print(students)
+
+students.sort()
+print(students)
+
+students.reverse()
+print(students)
