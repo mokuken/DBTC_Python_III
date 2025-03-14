@@ -1,6 +1,6 @@
-food = ["Burger"]
-price = [42]
-stock = [15]
+menu = {
+    "Burger": {"price": 42, "stock": 15}
+}
 
 def manage_menu(chosen):
     if chosen == 1:
@@ -14,11 +14,9 @@ def manage_menu(chosen):
                 print("Please enter a valid number")
                 continue
 
-            food.append(new_food)
-            price.append(new_price)
-            stock.append(new_stock)
+            menu[new_food] = {"price": new_price, "stock": new_stock}
 
-            print(f"\n{new_food} added to menu (P{new_price}, {new_price} in stock).")
+            print(f"\n{new_food} added to menu (P{new_price}, {new_stock} in stock).")
 
             show_menu()
             again = input("Add another food? (yes/no): ")
@@ -33,23 +31,23 @@ def manage_menu(chosen):
         show_menu()
         while True:
             edit_food = input("Enter a food to edit: ")
-            food_index = food.index(edit_food)
-            price.pop(food_index)
-            stock.pop(food_index)
+            if edit_food in menu:
+                edit_price = int(input("Enter the new price: "))
+                edit_stock = int(input("Enter the new stock: "))
 
-            edit_price = int(input("Enter the new price: "))
-            edit_stock = int(input("Enter the new stock: "))
+                menu[edit_food]["price"] = edit_price
+                menu[edit_food]["stock"] = edit_stock
 
-            price.insert(food_index, edit_price)
-            stock.insert(food_index, edit_stock)
-
-            show_menu()
-            again = input("Edit another food? (yes/no): ")
-            if again == "yes":
-                continue
-            elif again == "no":
-                break
+                show_menu()
+                again = input("Edit another food? (yes/no): ")
+                if again == "yes":
+                    continue
+                elif again == "no":
+                    break
+                else:
+                    continue
             else:
+                print("Food not found in menu.")
                 continue
         
     elif chosen == 3:
@@ -57,28 +55,29 @@ def manage_menu(chosen):
 
         while True:
             del_food = input("Enter the name of food to delete: ")
-            food_index = food.index(del_food)
-            food.remove(del_food)
-            price.pop(food_index)
-            stock.pop(food_index)
+            if del_food in menu:
+                del menu[del_food]
 
-            show_menu()
-            again = input("Delete another food? (yes/no): ")
-            if again == "yes":
-                continue
-            elif again == "no":
-                break
+                show_menu()
+                again = input("Delete another food? (yes/no): ")
+                if again == "yes":
+                    continue
+                elif again == "no":
+                    break
+                else:
+                    continue
             else:
+                print("Food not found in menu.")
                 continue
 
 def show_menu():
     print("\n-----------------------------------------")
     print("Food name       Price (P)       Stock")
     print("-------------------------------------------")
-    if len(food) > 0:
-        for i in range(len(food)):
-                print(f"{food[i]}\t\tP {price[i]}\t\t{stock[i]}")
-    elif len(food) == 0:
+    if len(menu) > 0:
+        for food, details in menu.items():
+            print(f"{food}\t\tP {details['price']}\t\t{details['stock']}")
+    else:
         print("Empty Inventory.")
     print("-------------------------------------------")
 
