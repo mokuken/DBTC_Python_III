@@ -39,13 +39,9 @@ def manage_inventory(chosen):
                 book[edit_food]["dop"] = edit_stock
 
                 show_inventory()
-                again = input("Edit another Book? (yes/no): ")
-                if again == "yes":
-                    continue
-                elif again == "no":
+                if input("Edit another book? (yes/no): ").lower() != "yes":
                     break
-                else:
-                    continue
+                
             else:
                 print("Book not found in menu.")
                 continue
@@ -65,13 +61,8 @@ def manage_inventory(chosen):
                 print("Book not found in the inventory.")
                 continue
 
-            again = input("Delete another Book? (yes/no): ")
-            if again == "yes":
-                continue
-            elif again == "no":
+            if input("Delete another book? (yes/no): ").lower() != "yes":
                 break
-            else:
-                continue
     
     elif chosen == 4:
         while True:
@@ -104,13 +95,8 @@ def manage_inventory(chosen):
                         print("No books found by that date of publication.")
                 print("-" * 60)
             
-            again = input("Search another Book? (yes/no): ")
-            if again == "yes":
-                continue
-            elif again == "no":
+            if input("Search another book? (yes/no): ").lower() != "yes":
                 break
-            else:
-                continue
 
 
 
