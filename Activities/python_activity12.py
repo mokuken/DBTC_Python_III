@@ -69,6 +69,8 @@ def manage_menu(chosen):
             else:
                 print("Food not found in menu.")
                 continue
+    elif chosen == 4:
+        show_menu()
 
 def show_menu():
     print("\n-----------------------------------------")
@@ -84,7 +86,8 @@ def show_menu():
 print("Select from these choices:\n"
     "1 = Add Food\n"
     "2 = Edit Food\n"
-    "3 = Delete Food\n")
+    "3 = Delete Food\n"
+    "4 = Show Menu\n")
 
 action = int(input("(1-3) Pick an action: "))
 
@@ -92,6 +95,11 @@ while True:
     manage_menu(action)
     promt = input("Do another action (yes/no): ")
     if promt == "yes":
+        print("Select from these choices:\n"
+            "1 = Add Food\n"
+            "2 = Edit Food\n"
+            "3 = Delete Food\n"
+            "4 = Show Menu\n")
         action = int(input("(1-3) Pick an action: "))
         promt = "yes"
         continue
