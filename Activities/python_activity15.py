@@ -25,6 +25,7 @@ class OrderRepository:
 
 # Test the refactored code
 print("=== Testing Followed SRP Code ===")
+print("=== Testing Followed SRP Code ===")
 order1 = Order(2, [("Keyboard", 100), ("Monitor", 300)])
 InvoicePrinter.print_invoice(order1)
 OrderRepository.save_to_database(order1)
