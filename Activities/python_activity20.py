@@ -85,14 +85,12 @@ class RobotCat(Animal):
         self.energy = 100
 
 
-# ---------- LISKOV TEST FUNCTION ---------- #
 def perform_sound_and_action(animal: Animal):
     animal.make_sound()
     animal.perform_action()
     print(f"Energy Level: {animal.get_energy_level()}")
 
 
-# ---------- TEST CASES ---------- #
 dog = Dog()
 cat = Cat()
 robot_dog = RobotDog()
