@@ -15,7 +15,7 @@ class ItemCreate:
 
 # --- O: Open/Closed Principle & Database Interaction ---
 class InventoryManager:
-    def __init__(self, db_path="inventory.db"):
+    def __init__(self, db_path):
         self.conn = sqlite3.connect(db_path)
         self.cursor = self.conn.cursor()
         self._create_table()
@@ -123,6 +123,6 @@ class InventoryConsole:
 
 # --- Run the application ---
 if __name__ == "__main__":
-    inventory_manager = InventoryManager("inventory.db")
+    inventory_manager = InventoryManager("./Database/inventory.db")
     ui = InventoryConsole(inventory_manager)
     ui.run()
